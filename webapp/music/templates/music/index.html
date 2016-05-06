@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Music Albums</title>
+</head>
+    <body>
+    {% if albums %}
+        <ul>
+            {% for album in albums %}
+                <li><a href="/music/{{album.id}}/">{{album.album_title}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No albums added yet</p>
+    {% endif %}
+    </body>
+</html>
