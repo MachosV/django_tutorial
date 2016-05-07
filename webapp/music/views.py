@@ -14,9 +14,12 @@ def index(request):
     return render(request, 'music/index.html', context)
 
 
-def detail(request,album_id):
-    album = Album.objects.get(id=album_id)
-    context = {
-        'album': album
-    }
-    return render(request, 'music/details.html', context)
+def details(request,artist,album_title):
+    try:
+        album = Album.objects.filter(album_title=album_title).filter(artist=artist)[0]
+        context = {
+            'album': album
+        }
+        return render(request, 'music/details.html', context)
+    except:
+        return HttpResponse("Nothing returned")

@@ -4,8 +4,9 @@ from . import views
 
 urlpatterns = [
     #/music/
-    url(r'^$',views.index, name="index"),
+    url(r'^$',views.index,name="index"),
+    url(r'^$',views.index, name="index1"),
 
     #/music/#id
-    url(r'^(?P<album_id>[0-9]+)/$',views.detail, name="detail")
+    url(r'^(?P<artist>.+)/(?P<album_title>.+)/$',views.details, name="details")
 ]
