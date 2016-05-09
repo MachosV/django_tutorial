@@ -22,4 +22,4 @@ def details(request,artist,album_title):
         }
         return render(request, 'music/details.html', context)
     except:
-        return HttpResponse("Nothing returned")
+        return HttpResponse("Album does not exist :(")
