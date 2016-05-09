@@ -11,5 +11,11 @@
         <li>{{album.genre}}</li>
         <img src="{{album.album_logo}}">
     </ul>
+    <p>Songs of the album {{album.album_title}}</p>
+        <ul>
+            {% for song in album.song_set.all %}
+            <li>{{song.song_title}}</li>
+            {% endfor %}
+        </ul>
 </body>
 </html>
