@@ -6,7 +6,7 @@
     {% if albums %}
         <ul>
             {% for album in albums %}
-                <li><a href="/music/{{album.artist}}/{{album.album_title}}/">{{album.album_title}}</a></li>
+                <li><a href="{% url 'details' artist=album.artist album_title=album.album_title %}">{{album.album_title}}</a></li>
             {% endfor %}
         </ul>
     {% else %}
