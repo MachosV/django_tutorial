@@ -5,6 +5,9 @@
     <title>Details of {{album.album_title}}</title>
 </head>
 <body>
+    {% if error_msg %}
+        <p>Sumfink gouent ronk</p>
+    {% endif %}
     <p>Details of {{album.album_title}}</p>
     <ul>
         <li>{{album.artist}}</li>
@@ -12,10 +15,17 @@
         <img src="{{album.album_logo}}">
     </ul>
     <p>Songs of the album {{album.album_title}}</p>
+    <form action="{% url 'music:favorite' artist=album.artist album_title=album.album_title %}" method="post">
+        {% csrf_token %}
         <ul>
             {% for song in album.song_set.all %}
-            <li>{{song.song_title}}</li>
+            <li>{{song.song_title}} <input type="radio" id="song{{forloop.counter}}" name="song" value="{{song.id}}">
+            {% if song.is_favorite%}
+                <img src="https://cdn3.iconfinder.com/data/icons/freeapplication/png/24x24/Favourites.png"/>
+            {% endif %}
+            </li>
             {% endfor %}
-        </ul>
+        </ul><input type="submit" value="Favorite">
+    </form>
 </body>
 </html>

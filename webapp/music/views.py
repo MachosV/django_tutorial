@@ -23,3 +23,7 @@ def details(request,artist,album_title):
         return render(request, 'music/details.html', context)
     except:
         return HttpResponse("Album does not exist :(")
+
+
+def favorite(request,artist,album_title):
+    return HttpResponse("Not implemented yet")
