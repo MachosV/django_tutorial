@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Details of {{album.album_title}}</title>
-</head>
-<body>
+{% extends 'music/base.html' %}
+{% block title%} {{album.album_title}} {% endblock %}
+{% block body %}
     {% if error_msg %}
         <p>Sumfink gouent ronk</p>
     {% endif %}
@@ -27,5 +23,4 @@
             {% endfor %}
         </ul><input type="submit" value="Favorite">
     </form>
-</body>
-</html>
+{% endblock %}

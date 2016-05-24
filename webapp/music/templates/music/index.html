@@ -1,8 +1,5 @@
-<html>
-<head>
-    <title>Music Albums</title>
-</head>
-    <body>
+{% extends 'music/base.html'%}
+{% block body %}
     {% if albums %}
         <ul>
             {% for album in albums %}
@@ -12,5 +9,4 @@
     {% else %}
         <p>No albums added yet</p>
     {% endif %}
-    </body>
-</html>
+{% endblock %}

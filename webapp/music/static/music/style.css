@@ -1,0 +1,11 @@
+body{
+    background: url("background.jpg");
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    font-family: 'Metal Mania' ,cursive;
+}
