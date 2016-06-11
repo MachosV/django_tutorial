@@ -1,0 +1,105 @@
+.body {
+    padding-top: 70px;
+}
+
+blockquote{
+    margin:auto;
+}
+
+.shadow {
+    -webkit-box-shadow: 10px 13px 20px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 13px 20px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 13px 20px -5px rgba(0,0,0,0.75);
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.quote-box{
+    overflow: hidden;
+    margin-top: -50px;
+    padding-top: -100px;
+    margin-top: 25px;
+    width: 325px;
+    min-height : 200px;
+    border-left:none;
+}
+
+.quotation-mark{
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-size:80px;
+    font-family: "Times New Roman", Georgia, Serif;
+
+}
+
+.quote-text{
+    font-family: 'Gloria Hallelujah',cursive;
+    font-size: 19px;
+    margin-top: -65px;
+    margin-bottom: 20px;
+}
+
+.hand-font{
+    font-family: 'Gloria Hallelujah',cursive;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+    float: left;
+    display: none;
+    min-width: 160px;
+    padding: 4px 0;
+    margin: 0 0 10px 25px;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
+}
+
+.ui-helper-hidden-accessible { display:none; }

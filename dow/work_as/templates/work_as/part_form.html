@@ -1,0 +1,30 @@
+{% extends 'work_as/base.html' %}
+{% load staticfiles %}
+{% block title %}New part {% endblock %}
+{% block head %}
+<script type="text/javascript" src="{% static 'work_as/submit.js'%}"></script>
+{% endblock%}
+{% block page_title %} New part {% endblock %}
+{% block body %}
+<br>
+<div class="container-fluid">
+        <div class="panel panel-default container success">
+            <div class="panel panel-body">
+                <form id="submit-form" class="form-horizontal" action="" method="post">
+                    {% csrf_token %}
+                    <div class="row" id="form-content">
+                        {% include 'work_as/form-template.html'%}
+                    </div>
+                    <div class="form-group text-center">
+                        <button id="submit_btn" class="btn btn-success">Submit</button>
+                        <!--<input type="button" id="test" value="Test me">-->
+                        <br>
+                        <br>
+                        <div id="message">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+{% endblock %}

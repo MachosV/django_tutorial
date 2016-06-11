@@ -1,0 +1,38 @@
+{% extends 'work_as/base.html'%}
+{% load staticfiles %}
+{% block title %}
+Main page
+{% endblock %}
+{% block head %}
+    <script src="{% static 'work_as/tilt.js' %}"></script>
+{% endblock %}
+{% block page_title %}Manager's Notes{% endblock %}
+
+{% block body %}
+    {% if all_notes %}
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <div class="row">
+        {% for note in all_notes %}
+                <div class="col-md-4 text-center">
+                    <blockquote class="quote-box shadow" style="background-color:#{{note.color}}">
+                        <p class="quotation-mark hand-font">“</p>
+                        <p class="quote-text">{{ note.text }}</p>
+                        <div class="blog-post-actions">
+                            <p class="blog-post-bottom pull-right hand-font">{{ note.poster.name}} {{note.poster.surname }}</p>
+                        </div>
+                    </blockquote>
+                </div>
+    {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+
+    {% else %}
+    <p>No notes added yet</p>
+    {% endif %}
+</div>
+{% endblock %}
+kquote>-->

@@ -1,0 +1,39 @@
+{% extends 'work_as/base.html' %}
+{% load staticfiles %}
+{% block title %}
+Parts
+{% endblock %}
+{% block page_title %}Parts{% endblock %}
+{% block body %}
+<br>
+<div class="container">
+    {% if all_parts %}
+    <table class="table table-hover table-striped table-fixed">
+        <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Location</th>
+        </tr>
+        </thead>
+        {% for part in all_parts %}
+            <tr class="trlink" data-url="{% url 'work_as:main'%}" rowspan="{{part.storage.all|length}}">
+                <td id="valigned">{{part.code}}</td>
+                <td id="valigned">{{part.description}}</td>
+                <td id="valigned">{{part.quantity}}</td>
+                <td id="valigned">{{part.price}}</td>
+                <td id="valigned">
+                {% for location in part.storage.all %}
+                {{location}}<br>
+                {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+  </table>
+    {% else %}
+    <p>No parts added yet!</p>
+    {% endif %}
+</div>
+{% endblock %}
