@@ -11,7 +11,7 @@
         <img src="{{album.album_logo}}">
     </ul>
     <p>Songs of the album {{album.album_title}}</p>
-    <form action="{% url 'music:favorite' artist=album.artist album_title=album.album_title %}" method="post">
+    <form action="#" method="post">
         {% csrf_token %}
         <ul>
             {% for song in album.song_set.all %}

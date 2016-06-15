@@ -103,3 +103,11 @@ blockquote{
 }
 
 .ui-helper-hidden-accessible { display:none; }
+
+.panel-body{
+    background: #f9f9f9;
+}
+
+.panel > .panel-body > p, .panel > .panel-body > li{
+    font-size: 17px;
+}

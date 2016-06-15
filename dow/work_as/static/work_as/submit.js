@@ -32,11 +32,11 @@ function csrfSafeMethod(method) {
 function clickHandler(){
 $('#submit-form').submit(function(e){
         e.preventDefault();
-
+        console.log($("#id_storage").val().toString());
+        //return;
         if($("#id_storage option:selected").length<1){
             return;
         }
-
 
         var csrftoken = getCookie('csrftoken');
         $.ajaxSetup({
@@ -52,7 +52,7 @@ $('#submit-form').submit(function(e){
             description:$("input[name=description]").val(),
             price:$("input[name=price]").val(),
             quantity:$("input[name=quantity]").val(),
-            storage:eval($("#id_storage").val().toString()),
+            storage:eval($("#id_storage").val())
         })
         .done(function(data){
             console.log(data);

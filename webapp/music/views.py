@@ -1,40 +1,32 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import render
-from .models import Album, Song
-
-# Create your views here.
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Album
+from django.core.urlresolvers import reverse_lazy
 
 
-def index(request):
-    albums = Album.objects.all()
-    context = {
-        'albums': albums,
-    }
-    return render(request, 'music/index.html', context)
+class IndexView(generic.ListView):
+    template_name = 'music/index.html'
+    context_object_name = 'all_albums'
+    def get_queryset(self):
+        return Album.objects.all()
 
+class DetailView(generic.DetailView):
+    model = Album
+    template_name = 'music/details.html'
 
-def details(request,artist,album_title):
-    try:
-        album = Album.objects.filter(album_title=album_title).filter(artist=artist)[0]
-        context = {
-            'album': album
-        }
-        return render(request, 'music/details.html', context)
-    except:
-        return HttpResponse("Album does not exist :(")
+    def get_object(self,queryset=None):
+        artist = self.kwargs['artist']
+        album_title = self.kwargs['album_title']
+        return Album.objects.all().filter(artist=artist).filter(album_title=album_title)[0]
 
+class AlbumCreate(CreateView):
+    model = Album
+    fields = ['artist', 'album_title', 'genre', 'album_logo']
 
-def favorite(request, artist, album_title):
-    album = Album.objects.filter(album_title=album_title).filter(artist=artist)[0]
-    try:
-        selected_song = album.song_set.get(id=request.POST['song'])
-    except (KeyError, Song.DoesNotExit):
-        return render(request, 'music/detalis.html', {
-            'album': album,
-            'error_msg': 1
-        })
-    else:
-        selected_song.is_favorite = not selected_song.is_favorite
-        selected_song.save()
-    return render(request, 'music/details.html', {'album': album})
+class AlbumUpdate(UpdateView):
+    model = Album
+    fields = ['artist', 'album_title', 'genre', 'album_logo']
+
+class AlbumDelete(DeleteView):
+    model = Album
+    success_url = reverse_lazy('music:index')

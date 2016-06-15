@@ -5,10 +5,16 @@ app_name = 'music'
 
 urlpatterns = [
     #/music/
-    url(r'^$',views.index,name="index"),
+    url(r'^$',views.IndexView.as_view(),name="index"),
 
     #/music/#id
-    url(r'^(?P<artist>.+)/(?P<album_title>.+)/$',views.details, name="details"),
+    url(r'^(?P<artist>.+)/(?P<album_title>.+)/$',views.DetailView.as_view(), name="details"),
 
-    url(r'^(?P<artist>.+)/(?P<album_title>.+)/favorite$',views.favorite, name="favorite")
+    #music/album/add
+    url(r'album/add$', views.AlbumCreate.as_view(),name='album-add'),
+
+    url(r'^(?P<artist>.+)/(?P<album_title>.+)/update/$', views.AlbumUpdate.as_view(),name='album-update'),
+
+    url(r'^(?P<artist>.+)/(?P<album_title>.+)/delete/$', views.AlbumDelete.as_view(),name='album-delete')
+
 ]

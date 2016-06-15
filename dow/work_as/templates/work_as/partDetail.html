@@ -13,19 +13,28 @@ $(function () {
 
 </script>
 <div class="container">
-    <p>Code: {{ part.code }}</p>
-    <p>Description: {{ part.description }}</p>
-    <p>Quantity: {{ part.quantity }}</p>
-    <p>Price {{ part.price }}</p>
-    <p>Stored in: </p>
-    {% for location in part.storage.all %}
-        {{location}}<br>
-    {% endfor %}
-    <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom" title="Edit">
-        <span class="glyphicon glyphicon-wrench"></span>
-    </button>&nbsp;
-    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete">
-        <span class="glyphicon glyphicon-trash" ></span>
-    </button>&nbsp;
+        <div class="row text-center">
+            <div class="col-xs-6 col-xs-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>Code: {{ part.code }}</p>
+                        <p>Description: {{ part.description }}</p>
+                        <p>Quantity: {{ part.quantity }}</p>
+                        <p>Price: {{ part.price }}</p>
+                        <p>Stored in:
+                            {% for location in part.storage.all %}
+                            <li>{{location}}</li>
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+                <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom" title="Edit">
+                    <span class="glyphicon glyphicon-wrench"></span>
+                </button>&nbsp;
+                <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                    <span class="glyphicon glyphicon-trash" ></span>
+                </button>&nbsp;
+            </div>
+        </div>
 </div>
 {% endblock %}
